@@ -151,6 +151,7 @@ public class Principal extends javax.swing.JFrame {
         SeleccionRuta sr = new SeleccionRuta();
         sr.setUsuario(usuario);
         sr.setVisible(rootPaneCheckingEnabled);
+        this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**

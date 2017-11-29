@@ -64,7 +64,7 @@ public class Ruta {
         return this.horaSalida;
     }
 
-    public String setHoraDeSalida(String HoraDeSalida) {
+    public String setHoraSalida(String HoraDeSalida) {
         return this.horaSalida = HoraDeSalida;
     }
     

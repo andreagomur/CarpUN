@@ -235,7 +235,7 @@ public class CrearViaje extends javax.swing.JFrame {
         Ruta rt = new Ruta(origen, destino, ruta, desvio, puestos, ruta);
         
         EscritorArchivos ea = new EscritorArchivos();
-        ea.crearRuta(rt, "archivos/rutas.txt", precio);           
+        ea.agregarRuta(rt, "archivos/rutas.txt", precio);           
         this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
