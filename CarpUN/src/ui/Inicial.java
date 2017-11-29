@@ -7,7 +7,7 @@ package ui;
 
 /**
  *
- * @author Felipe
+ * @author Andre
  */
 public class Inicial extends javax.swing.JFrame {
 

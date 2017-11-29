@@ -7,11 +7,12 @@ package ui;
 
 import data.Ruta;
 import data.Usuario;
+import java.util.Random;
 import manejoArchivos.EscritorArchivos;
 
 /**
  *
- * @author Felipe
+ * @author Andre
  */
 public class CrearViaje extends javax.swing.JFrame {    
     private Usuario usuario;
@@ -230,9 +231,16 @@ public class CrearViaje extends javax.swing.JFrame {
         boolean desvio = jCheckBox1.isSelected();
         int puestos = Integer.parseInt(jTextField5.getText().trim());
         float precio = Float.parseFloat(jTextField6.getText().trim());
-        String fecha = jTextField4.getText().trim() + ":" + jTextField9.getText().trim(); 
+        String fecha = jTextField4.getText().trim() + ":" + jTextField9.getText().trim();        
+        long telefono = usuario.getTelefono();
+        String conductor = usuario.getNombre();
+        String id;
         
-        Ruta rt = new Ruta(origen, destino, ruta, desvio, puestos, ruta);
+        Random randomGenerator = new Random();
+        id = destino + Integer.toString(randomGenerator.nextInt(10000));
+        
+        
+        Ruta rt = new Ruta(origen, destino, ruta, desvio, puestos, ruta, precio, id, telefono, conductor);
         
         EscritorArchivos ea = new EscritorArchivos();
         ea.agregarRuta(rt, "archivos/rutas.txt", precio);           

@@ -16,7 +16,7 @@ import manejoArchivos.LectorArchivos;
 
 /**
  *
- * @author Felipe
+ * @author Andre
  */
 public class Registro extends javax.swing.JFrame {
     /**

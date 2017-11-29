@@ -5,20 +5,32 @@
  */
 package ui;
 
+import data.Ruta;
+import data.Usuario;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
+import manejoArchivos.LectorArchivos;
+
 
 /**
  *
- * @author Felipe
+ * @author Andre
  */
-public class BuscarViaje1 extends javax.swing.JFrame {
+public class BuscarViaje extends javax.swing.JFrame {
 
     /**
      * Creates new form NewJFrame
      */
-    public BuscarViaje1() {
+    
+    Usuario usuario;
+    String direccion;
+    String tipoDireccion;
+    public BuscarViaje() {
         initComponents();
     }
 
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -141,13 +153,80 @@ public class BuscarViaje1 extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    public void setUsuario(Usuario usuario){
+        this.usuario = usuario;                 
+    }
+    
+    public void setDireccion(String direccion, String tipo){
+        this.direccion = direccion;
+        tipoDireccion = tipo;
+        jTextField3.setText(direccion);
+        jTextField3.setEditable(false);
+    }
+            
+    
     private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField3ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        int i = Integer.parseInt(this.jTextField1.getText());
+        LectorArchivos la = new LectorArchivos();
+        
+        String origen = jTextField2.getText().trim();
+        String destino = jTextField3.getText().trim();
+        int puestos = Integer.parseInt(jTextField1.getText().trim());
+        boolean acercarme = jCheckBox1.isSelected();
+        
+        ArrayList<String> rutasDisponibles = la.leerArchivo("archivos/rutas.txt");
+        ArrayList<Ruta> rutasProbables = new ArrayList<Ruta>();
+        short indiceSplit=0;
+        if (tipoDireccion.equals("origen")){
+            indiceSplit = 0;
+        }else if (tipoDireccion.equals("destino")){
+            indiceSplit = 1;
+        }
+
+        for (int i=0; i<rutasDisponibles.size();i++){
+                if (rutasDisponibles.get(i).split("%")[indiceSplit].trim().equals(direccion)){                    
+                    String origenRuta = rutasDisponibles.get(i).split("%")[0].trim();
+                    String destinoRuta = rutasDisponibles.get(i).split("%")[1].trim(); 
+                    String horaSalida = rutasDisponibles.get(i).split("%")[6].trim();
+                    String desvio = rutasDisponibles.get(i).split("%")[3].trim();
+                    float precio = Float.parseFloat(rutasDisponibles.get(i).split("%")[5].trim());
+                    String id = rutasDisponibles.get(i).split("%")[7].trim();
+                    long telefono = Long.parseLong(rutasDisponibles.get(i).split("%")[8].trim());
+                    String conductor = rutasDisponibles.get(i).split("%")[9].trim();
+                    boolean desvioRuta;
+                    if (desvio.equals("false")){
+                        desvioRuta = false;
+                    }else{
+                        desvioRuta = true;
+                    }
+                    //boolean desvio = ;
+                    int puestosRuta = Integer.parseInt(rutasDisponibles.get(i).split("%")[4].trim());
+                    String ruta = rutasDisponibles.get(i).split("%")[2].trim();;                    
+                    
+                    Ruta rutaProbable = new Ruta(origen, destino, horaSalida, desvioRuta, puestos, ruta, precio, id, telefono, conductor);       
+                    rutasProbables.add(rutaProbable);                            
+                }
+        }
+        
+        for (int i=0; i < rutasProbables.size();i++){
+            if ( !rutasProbables.get(i).getDesvio() && !acercarme ){
+                rutasProbables.remove(i);
+            }
+        }
+        
+        if (rutasProbables.size() > 0){
+            EscogerRuta er = new EscogerRuta();
+            er.setRutasProbables(rutasProbables);
+            er.setVisible(rootPaneCheckingEnabled);
+            er.cargarRutas();
+        }else{
+            JOptionPane.showMessageDialog(null, "No encontramos rutas disponibles! Lo sentimos!");
+        }
+        
         
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -170,14 +249,78 @@ public class BuscarViaje1 extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(BuscarViaje1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(BuscarViaje.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(BuscarViaje1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(BuscarViaje.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(BuscarViaje1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(BuscarViaje.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(BuscarViaje1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(BuscarViaje.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -246,7 +389,7 @@ public class BuscarViaje1 extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new BuscarViaje1().setVisible(true);
+                new BuscarViaje().setVisible(true);
             }
         });
     }

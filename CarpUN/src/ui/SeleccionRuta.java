@@ -21,6 +21,7 @@ public class SeleccionRuta extends javax.swing.JFrame {
     }
 
     Usuario usuario;
+    String operacion;
     
     /**
      * This method is called from within the constructor to initialize the form.
@@ -110,24 +111,52 @@ public class SeleccionRuta extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    public void setOperacion(String operacion){
+        this.operacion = operacion;
+    }
+    
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        CrearViaje cv = new CrearViaje();
-        cv.setUsuario(usuario);
         
-        cv.setDireccion(usuario.getUniversidad());
-        cv.setVisible(rootPaneCheckingEnabled);
-        this.dispose();
+        if (operacion.equals("Crear")){
+            CrearViaje cv = new CrearViaje();
+            cv.setUsuario(usuario);
+
+            cv.setDireccion(usuario.getUniversidad());
+            cv.setVisible(rootPaneCheckingEnabled);
+            this.dispose();            
+        }else if (operacion.equals("Consultar")){
+            BuscarViaje bv = new BuscarViaje();
+            bv.setUsuario(usuario);
+            
+            bv.setDireccion(usuario.getUniversidad(), "destino");
+            bv.setVisible(rootPaneCheckingEnabled);
+            this.dispose();
+            
+        }
+        
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
+        if (operacion.equals("Crear")){
         CrearViaje cv = new CrearViaje();
         cv.setUsuario(usuario);
         
         cv.setDireccion(usuario.getDireccion());
         cv.setVisible(rootPaneCheckingEnabled);
-        this.dispose();
+        this.dispose();            
+        }else if (operacion.equals("Consultar")){
+            BuscarViaje bv = new BuscarViaje();
+            bv.setUsuario(usuario);
+            
+            bv.setDireccion(usuario.getDireccion(), "origen");            
+            bv.setVisible(rootPaneCheckingEnabled);
+            this.dispose();
+            
+        }
+
     }//GEN-LAST:event_jButton4ActionPerformed
 
     /**

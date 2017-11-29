@@ -11,7 +11,7 @@ import data.Usuario;
 
 /**
  *
- * @author Felipe
+ * @author Andre
  */
 public class TipoUsuario extends javax.swing.JFrame {
 
@@ -121,6 +121,7 @@ public class TipoUsuario extends javax.swing.JFrame {
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
         Principal pr = new Principal();
+        pr.setUsuario(usuario);
         pr.deshabilitarCrearViaje();
         pr.setVisible(rootPaneCheckingEnabled);
         this.dispose();

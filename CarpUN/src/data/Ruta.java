@@ -18,14 +18,22 @@ public class Ruta {
     private boolean desvio;
     private int puestos;
     private String ruta;
+    private float precio;
+    private String id;
+    private long telefono;
+    private String conductor;
     
-    public Ruta(String origen, String destino, String horaSalida, boolean desvio, int puestos, String ruta){
+    public Ruta(String origen, String destino, String horaSalida, boolean desvio, int puestos, String ruta, float precio, String id, long telefono, String conductor){
         this.origen = origen;
         this.destino = destino;
         this.horaSalida = horaSalida;
         this.desvio = desvio;
         this.puestos = puestos;
         this.ruta = ruta;
+        this.precio = precio;
+        this.id = id;
+        this.telefono = telefono;
+        this.conductor = conductor;
     }
     
     public boolean getDesvio() {
@@ -74,5 +82,37 @@ public class Ruta {
     
     public String getRuta(){
         return this.ruta;
+    }
+    
+    public float getPrecio(){
+        return this.precio;
+    }
+ 
+    public String getId(){
+        return this.id;
+    }
+    
+    public void setId(String id){
+        this.id = id;
+    }
+    
+    public void setPrecio(float precio){
+        this.precio = precio;
+    }
+    
+    public long getTelefono(){
+        return this.telefono;
+    }
+    
+    public void setTelefono(long telefono){
+        this.telefono = telefono;
+    }
+    
+    public String getConductor(){
+        return this.conductor;                
+    }
+    
+    public void setConductor(String conductor){
+        this.conductor = conductor;                 
     }
 }

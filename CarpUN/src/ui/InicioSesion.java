@@ -13,7 +13,7 @@ import manejoArchivos.LectorArchivos;
 
 /**
  *
- * @author Felipe
+ * @author Andre
  */
 public class InicioSesion extends javax.swing.JFrame {
 

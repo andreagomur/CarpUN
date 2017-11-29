@@ -1,3 +1,1 @@
-Casita%Universidad Nacional%Exito%true%2%2000.0%Exito
-Casita%Universidad Nacional%Felicidad%false%12%200000.0%Felicidad
-Sofa%Universidad Nacional%Camita%true%25%1.2121212E7%Camita
+Cll 2 - 25 # 45%Universidad Nacional%Av Cerros - Calle 45%true%3%2000.0%Av Cerros - Calle 45%Universidad Nacional1612%3001248179%Andrea Calderon

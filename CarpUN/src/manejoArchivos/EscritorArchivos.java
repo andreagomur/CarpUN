@@ -63,7 +63,7 @@ public class EscritorArchivos {
         LectorArchivos la = new LectorArchivos();        
         entradasArchivo = la.leerArchivo(rutaArchivo);        
         
-        entradasArchivo.add(ruta.getOrigen() + "%" + ruta.getDestino() + "%" + ruta.getRuta() + "%" + ruta.getDesvio() + "%" + ruta.getPuestos() + "%" + precio + "%" + ruta.getHoraDeSalida());               
+        entradasArchivo.add(ruta.getOrigen() + "%" + ruta.getDestino() + "%" + ruta.getRuta() + "%" + ruta.getDesvio() + "%" + ruta.getPuestos() + "%" + precio + "%" + ruta.getHoraDeSalida() + "%" + ruta.getId() + "%" + ruta.getTelefono() + "%" + ruta.getConductor());               
         escribirArchivo(entradasArchivo, rutaArchivo);        
     }
     
