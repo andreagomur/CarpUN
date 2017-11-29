@@ -9,6 +9,7 @@ package bussinesLogic;
 import data.Universidad;
 import data.Usuario;
 import java.util.ArrayList;
+import ui.Inicial;
 import ui.Principal;
 //import ui.Inicio;
 import ui.Registro;
@@ -24,8 +25,8 @@ public class CarpoolUN {
    
    public static void main(String[] arg){
    
-   Principal pr = new Principal();
-   pr.setVisible(true);
+   Inicial ini = new Inicial();
+   ini.setVisible(true);
        
    }
    public static void RegistrarUsuario(){

@@ -5,25 +5,30 @@
  */
 package data;
 
+import java.util.Date;
+
 /**
  *
  * @author acer
  */
-public abstract class Ruta {
-    private String Origen;
-    private String Destino;
-    private String HoraDeSalida;
+public class Ruta {
+    private String origen;
+    private String destino;
+    private String horaSalida;
     private boolean desvio;
     private int puestos;
-    public Ruta(){
-    this.Destino = null;
-    this.HoraDeSalida = null;
-    this.Origen = null;
-    this.desvio = false;
-    this.puestos = 0;
+    private String ruta;
+    
+    public Ruta(String origen, String destino, String horaSalida, boolean desvio, int puestos, String ruta){
+        this.origen = origen;
+        this.destino = destino;
+        this.horaSalida = horaSalida;
+        this.desvio = desvio;
+        this.puestos = puestos;
+        this.ruta = ruta;
     }
-
-    public boolean isDesvio() {
+    
+    public boolean getDesvio() {
         return desvio;
     }
 
@@ -40,27 +45,34 @@ public abstract class Ruta {
     }
 
     public String getOrigen() {
-        return Origen;
+        return this.origen;
     }
 
     public void setOrigen(String Origen) {
-        this.Origen = Origen;
+        this.origen = Origen;
     }
 
     public String getDestino() {
-        return Destino;
+        return this.destino;
     }
 
     public void setDestino(String Destino) {
-        this.Destino = Destino;
+        this.destino = Destino;
     }
 
     public String getHoraDeSalida() {
-        return HoraDeSalida;
+        return this.horaSalida;
     }
 
-    public void setHoraDeSalida(String HoraDeSalida) {
-        this.HoraDeSalida = HoraDeSalida;
+    public String setHoraDeSalida(String HoraDeSalida) {
+        return this.horaSalida = HoraDeSalida;
     }
     
+    public void setRuta(String ruta){
+        this.ruta = ruta;        
+    }
+    
+    public String getRuta(){
+        return this.ruta;
+    }
 }

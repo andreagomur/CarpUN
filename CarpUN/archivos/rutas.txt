@@ -1,0 +1,2 @@
+Casita%Universidad Nacional%Exito%true%2%2000.0%Exito
+Casita%Universidad Nacional%Felicidad%false%12%200000.0%Felicidad

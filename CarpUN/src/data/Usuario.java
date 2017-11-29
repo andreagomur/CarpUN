@@ -14,56 +14,56 @@ import java.util.ArrayList;
  *
  * @author LUIS FELIPE DAVILA GOYENECHE
  */
-public abstract class  Usuario {
+public class  Usuario {
 // Atributos
-    protected String Nombre;
-    private int Documento;
-    protected Universidad universidad;
-    private Direccion direccion;
-    protected ArrayList<Viaje> Historial;
+    protected String nombre;
+    private long documento;
+    protected String universidad;
+    private String direccion;
+    private long telefono;
+    private String tipoUsuario;
+    //protected ArrayList<Viaje> Historial;
     protected File info;
     
 // Construcctor
 
-    public Usuario(String Nombre, int Documento, Universidad universidad, String direccion) throws IOException {
-        this.Nombre = Nombre;
-        this.Documento = Documento;
+    public Usuario(String Nombre, long Documento, String universidad, String direccion, long telefono, String tipoUsuario) {
+        this.nombre = Nombre;
+        this.documento = Documento;
 
         this.universidad = universidad;
-        this.direccion = new Direccion(direccion, this);
-        this.Historial = new ArrayList<>();
-        String a = Documento +".txt";
-        this.info = new File(a);  // contiene toda la informacion del usuario.
-        this.info.createNewFile(); // insertar try catch.
+        this.direccion = direccion;
+        this.telefono = telefono;
+        this.tipoUsuario = tipoUsuario;
+        //this.Historial = new ArrayList<>();
+        //String a = Documento +".txt";
+        //this.info = new File(a);  // contiene toda la informacion del usuario.
+        //this.info.createNewFile(); // insertar try catch.
     }
     
 // Getters
-    public ArrayList<Viaje> getHistorial() {
-        return Historial;
-    }
-
     public String getNombre() {
-        return Nombre;
+        return this.nombre;
     }
 
-    public int getDocumento() {
-        return Documento;
+    public long getDocumento() {
+        return this.documento;
     }
 
-
-
-    public Universidad getUniversidad() {
-        return universidad;
+    public String getUniversidad() {
+        return this.universidad;
     }
 
-    public Direccion getDireccion() {
-        return direccion;
+    public String getDireccion() {
+        return this.direccion;
     }
     
-// Metodos
-  public abstract void SolicitarViaje(String Categoria);
-
-  public  abstract void finalizarViaje();
-  
-  public abstract File getInfo();
+    public long getTelefono(){
+        return this.telefono;
+    }
+    
+    public String getTipoUsuario(){
+        return this.tipoUsuario;
+    }
+    
 }

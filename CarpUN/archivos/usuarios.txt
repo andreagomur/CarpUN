@@ -1,0 +1,4 @@
+Andrea Calderon % Universidad Nacional % 12574818 % 1234567 % Cra 5 # 45 - 67%Conductor
+Brayam Rojas % Universidad Javeriana % 12586 % 9876 % Tres Esquinas%Conductor
+Andres Murillo % Universidad de los Andes % 9874941789 % 55555 % Casita%Pasajero
+Baco % Universidad de la Salle % 7562785 % 7777 % Sofa%Pasajero
